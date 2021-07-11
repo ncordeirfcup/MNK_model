@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <div class="head">
+    <h3>Linear Discriminant Analysis Model</h3>
+  </div>
+  <div class="equation">
+    <p>Equation={{ equation }}</p>
+  </div>
+ <div class="correl">
+   <p>Maximum intercorrelation (Pearson r) between two descriptors: {{ mc | round(3) }}</p>
+   <a href="/correlmatrix">Correlation Matrix</a><br>
+ </div>
+
+  <div class="good-h">
+    <h3>Goodness of fit</h3>
+  </div>
+  <div class="good-p">
+     <p>Wilks lambda= {{ L }}</p>
+     <p>F_value= {{ F }}</p>
+     <p>P value= {{ P }}</p>
+  </div>
+  <div class="table-h">
+    <h3>Training set statistics</h3>
+  </div>
+
+  <div class="table-b">
+    <table>
+        <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td>True Positive</td>
+          <td>{{ tp1 }}</td>
+        </tr>
+        <tr>
+          <td>True Negative</td>
+          <td>{{ tn1 }}</td>
+        </tr>
+        <tr>
+          <td>False Positive</td>
+          <td>{{ fp1 }}</td>
+        </tr>
+        <tr>
+          <td>False Negative</td>
+          <td>{{ fn1 }}</td>
+        </tr>
+        <tr>
+          <td>Accuracy</td>
+          <td>{{ acc1 }}</td>
+        </tr>
+        <tr>
+          <td>Matthews Correlation Coefficient</td>
+          <td>{{ mcc1 }}</td>
+        </tr>
+    </table>
+  </div>
+  <a href="/resultsTS">Test set predicted results</a><br>
+
+
+{% endblock %}
